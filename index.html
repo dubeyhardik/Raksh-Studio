@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raksh Studio | रक्ष STUDIO — Bespoke Digital Wedding Invites & Websites</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-warm: #FFFFFF;
+      --bg-card-light: #DFDBD5;
+      --crimson: #7B1121;
+      --crimson-hover: #961629;
+      --gold-badge: #D4B475;
+      --text-dark: #1E1918;
+      --text-muted: #524C49;
+      --text-light: #F4EFEA;
+      --border-subtle: rgba(30, 25, 24, 0.14);
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --hindi: 'Rozha One', serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: #FFFFFF;
+    }
+
+    body {
+      background-color: #FFFFFF;
+      color: var(--text-dark);
+      font-family: var(--sans);
+      line-height: 1.5;
+      overflow-x: hidden;
+      padding-bottom: 110px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header / Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: #FFFFFF;
+      border-bottom: 1px solid rgba(30, 25, 24, 0.08);
+      padding: 14px 0;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-dark);
+    }
+
+    .lotus-icon {
+      width: 38px;
+      height: 38px;
+      fill: var(--crimson);
+      flex-shrink: 0;
+    }
+
+    .brand-hindi-stack {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      padding-right: 12px;
+      border-right: 1.5px solid rgba(30, 25, 24, 0.25);
+    }
+
+    .brand-hindi {
+      font-family: var(--hindi);
+      font-size: 23px;
+      color: var(--crimson);
+      letter-spacing: 0.5px;
+    }
+
+    .brand-roman {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.8px;
+      margin-top: 2px;
+    }
+
+    .brand-studio {
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: var(--text-dark);
+      transform: scaleY(1.15);
+    }
+
+    .menu-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(30, 25, 24, 0.07);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: background 0.2s;
+    }
+
+    .menu-btn:hover {
+      background: rgba(30, 25, 24, 0.14);
+    }
+
+    /* Mobile Drawer */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 90;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      height: 100vh;
+      background: #FFFFFF;
+      box-shadow: -12px 0 40px rgba(0, 0, 0, 0.12);
+      z-index: 95;
+      padding: 28px 24px;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .side-drawer.active {
+      right: 0;
+    }
+
+    .drawer-links {
+      list-style: none;
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .drawer-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 36px 0 56px;
+      background: #FFFFFF;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        padding: 64px 0 80px;
+      }
+      .hero-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+      }
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 9vw, 72px);
+      font-weight: 700;
+      line-height: 1.06;
+      color: var(--text-dark);
+      margin-bottom: 22px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 600;
+      color: var(--crimson);
+    }
+
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: clamp(17px, 2.6vw, 20px);
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      margin-bottom: 30px;
+      max-width: 560px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 440px;
+    }
+
+    .btn-primary {
+      background: var(--crimson);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 18px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: var(--sans);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+      box-shadow: 0 10px 24px rgba(123, 17, 33, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--crimson-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Collage Showcase */
+    .hero-Visual {
+      position: relative;
+      height: 430px;
+      max-width: 440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .card-white-textured {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 185px;
+      height: 245px;
+      background: #E8E3DC;
+      border-radius: 14px;
+      transform: rotate(-4deg);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.5);
+      z-index: 2;
+    }
+
+    .monogram-circle {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 1px solid #B59963;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 28px;
+      color: #3B302B;
+      margin-bottom: 12px;
+    }
+
+    .card-maroon-arch {
+      position: absolute;
+      top: 5px;
+      left: 115px;
+      width: 195px;
+      height: 260px;
+      background: #3A1D24;
+      border-radius: 14px;
+      transform: rotate(4deg);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.28);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #D4B475;
+      border: 2px solid #C5A367;
+      z-index: 1;
+    }
+
+    .card-red-box {
+      position: absolute;
+      bottom: 5px;
+      left: 75px;
+      width: 155px;
+      height: 155px;
+      background: #7A1C1C;
+      border-radius: 12px;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.3);
+      border-left: 14px solid #B6955B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+
+    .card-red-label {
+      background: #EAE3D5;
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-family: var(--serif);
+      font-size: 18px;
+      color: #3A1D24;
+      font-weight: 700;
+    }
+
+    .phone-mockup {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 195px;
+      height: 380px;
+      background: #121010;
+      border-radius: 32px;
+      border: 6px solid #282423;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.45);
+      overflow: hidden;
+      z-index: 4;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 58px;
+      height: 15px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #2B1810, #59311A, #1B0F0A);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 18px 14px;
+      color: #FCE8C5;
+      text-align: center;
+    }
+
+    .phone-screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80') center/cover;
+      opacity: 0.72;
+    }
+
+    .phone-arch-overlay {
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(212, 180, 117, 0.6);
+      border-radius: 90px 90px 8px 8px;
+      height: 92%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px 10px 16px;
+      background: linear-gradient(180deg, rgba(20,10,5,0.4) 0%, rgba(20,10,5,0.85) 100%);
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(34px, 6.5vw, 52px);
+      font-weight: 600;
+      line-height: 1.08;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    /* Trending Section */
+    .trending-section {
+      padding: 40px 0 60px;
+    }
+
+    .cards-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 16px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .cards-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .invite-item {
+      flex: 0 0 295px;
+      scroll-snap-align: start;
+      cursor: pointer;
+      outline-offset: 4px;
+    }
+
+    @media (min-width: 768px) {
+      .invite-item {
+        flex: 0 0 330px;
+      }
+    }
+
+    .invite-card {
+      height: 470px;
+      border-radius: 22px;
+      position: relative;
+      overflow: hidden;
+      background-color: #0E1525;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .invite-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .invite-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .invite-card:hover .invite-bg {
+      transform: scale(1.05);
+    }
+
+    .invite-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,15,28,0.75) 0%, rgba(10,15,28,0.2) 45%, rgba(10,15,28,0.85) 100%);
+    }
+
+    .card-top {
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge-signature {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--gold-badge);
+      color: #1F1610;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .card-couple-header {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      margin-top: 14px;
+      color: #F8EFE0;
+    }
+
+    .card-couple-header small {
+      display: block;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    .card-couple-name {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin: 4px 0;
+      color: #E5C88F;
+    }
+
+    .card-couple-date {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .card-bottom {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+    }
+
+    .preview-pill {
+      background: rgba(35, 25, 20, 0.78);
+      backdrop-filter: blur(8px);
+      color: #F4EFEA;
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .invite-meta {
+      padding: 14px 4px 0;
+    }
+
+    .invite-meta h3 {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .invite-meta p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* How It Works Section */
+    .how-section {
+      padding: 36px 0 56px;
+    }
+
+    .steps-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-top: 28px;
+    }
+
+    @media (min-width: 820px) {
+      .steps-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .step-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(123, 17, 33, 0.1);
+      color: var(--crimson);
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-text h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .step-text p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* FAQ Accordion Section */
+    .faq-section {
+      padding: 24px 0 64px;
+    }
+
+    .faq-container {
+      margin-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      text-align: left;
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+
+    .faq-icon {
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text-muted);
+      transition: transform 0.25s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 220px;
+      padding-bottom: 20px;
+    }
+
+    /* Start With Your Names Interactive Banner */
+    .personalize-banner {
+      background: var(--bg-card-light);
+      border-radius: 26px;
+      padding: 36px 24px;
+      margin-bottom: 56px;
+      text-align: center;
+      border: 1px solid rgba(30,25,24,0.08);
+    }
+
+    .personalize-banner h2 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 5vw, 44px);
+      margin-bottom: 10px;
+    }
+
+    .personalize-banner p {
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      font-size: 15px;
+    }
+
+    .name-input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 520px;
+      margin: 0 auto;
+      justify-content: center;
+    }
+
+    .name-input {
+      flex: 1 1 180px;
+      padding: 15px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(30,25,24,0.2);
+      background: #fff;
+      font-family: var(--sans);
+      font-size: 15px;
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      padding: 36px 0 40px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .footer-bio {
+      margin: 18px 0 32px;
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    .footer-heading {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px 24px;
+      margin-bottom: 36px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--crimson);
+    }
+
+    .event-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Floating Sticky Bottom Bar */
+    .floating-dock {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 60;
+      width: calc(100% - 28px);
+      max-width: 430px;
+      background: #1C1213;
+      padding: 7px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .dock-btn-website {
+      flex: 1.15;
+      background: var(--crimson);
+      color: #fff;
+      border: none;
+      padding: 13px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--sans);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .dock-btn-website:hover {
+      background: var(--crimson-hover);
+    }
+
+    /* Modal for Booking */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 10, 10, 0.72);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg-card-light);
+      color: var(--text-dark);
+      width: 100%;
+      max-width: 440px;
+      border-radius: 26px;
+      padding: 28px 24px;
+      position: relative;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.08);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .modal-card h3 {
+      font-family: var(--serif);
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+
+    .modal-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(30,25,24,0.2);
+      background: #fff;
+      font-family: var(--sans);
+      font-size: 15px;
+    }
+
+    /* Template Website Preview (opens when a card is tapped) */
+    .preview-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      background: rgba(15, 10, 10, 0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preview-modal.active {
+      display: flex;
+    }
+
+    .preview-shell {
+      width: 100%;
+      height: 100%;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .preview-modal {
+        padding: 20px;
+      }
+      .preview-shell {
+        max-width: 420px;
+        height: min(860px, 100%);
+        border-radius: 28px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .preview-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: #FFFFFF;
+      border-bottom: 1px solid rgba(30, 25, 24, 0.1);
+      flex-shrink: 0;
+    }
+
+    .preview-back {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(30, 25, 24, 0.07);
+      color: var(--text-dark);
+      font-size: 20px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .preview-back:hover {
+      background: rgba(30, 25, 24, 0.14);
+    }
+
+    .preview-title {
+      flex: 1;
+      min-width: 0;
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .preview-use {
+      background: var(--crimson);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .preview-use:hover {
+      background: var(--crimson-hover);
+    }
+
+    .preview-body {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      background: #FFFFFF;
+    }
+
+    .preview-body iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #FFFFFF;
+    }
+
+    .preview-loader {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .spinner {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 3px solid rgba(123, 17, 33, 0.15);
+      border-top-color: var(--crimson);
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .spinner { animation-duration: 2s; }
+    }
+
+    .preview-soon {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: #FFFFFF;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 32px;
+      gap: 10px;
+    }
+
+    .preview-soon.show {
+      display: flex;
+    }
+
+    .preview-soon .soon-mark {
+      font-size: 34px;
+      color: var(--crimson);
+    }
+
+    .preview-soon h4 {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .preview-soon p {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="#" class="brand-logo">
+        <!-- Lotus Motif SVG -->
+        <svg class="lotus-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 6C27 16 25 24 32 32C39 24 37 16 32 6Z"/>
+          <path d="M14 14C16 25 21 31 32 32C25 21 22 15 14 14Z" opacity="0.85"/>
+          <path d="M50 14C42 15 39 21 32 32C43 31 48 25 50 14Z" opacity="0.85"/>
+          <path d="M6 32C16 37 24 39 32 32C24 25 16 27 6 32Z" opacity="0.75"/>
+          <path d="M58 32C48 27 40 25 32 32C40 39 48 37 58 32Z" opacity="0.75"/>
+          <path d="M14 50C22 49 25 43 32 32C21 33 16 39 14 50Z" opacity="0.85"/>
+          <path d="M50 50C48 39 43 33 32 32C39 43 42 49 50 50Z" opacity="0.85"/>
+          <path d="M32 58C37 48 39 40 32 32C25 40 27 48 32 58Z"/>
+        </svg>
+        <div class="brand-hindi-stack">
+          <span class="brand-hindi">रक्ष</span>
+          <span class="brand-roman">Raksh</span>
+        </div>
+        <span class="brand-studio">STUDIO</span>
+      </a>
+
+      <button class="menu-btn" id="openDrawerBtn" aria-label="Open Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="8" x2="20" y2="8"></line>
+          <line x1="4" y1="16" x2="16" y2="16"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="side-drawer" id="sideDrawer">
+    <div>
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-weight:700; letter-spacing:1px;">RAKSH STUDIO</span>
+        <button class="menu-btn" id="closeDrawerBtn" aria-label="Close Menu">&times;</button>
+      </div>
+      <ul class="drawer-links">
+        <li><a href="#trending" class="drawer-link">Trending 2026–27</a></li>
+        <li><a href="#how-it-works" class="drawer-link">How It Works</a></li>
+        <li><a href="#faq" class="drawer-link">Questions (FAQ)</a></li>
+      </ul>
+    </div>
+    <button class="btn-primary" onclick="openBookingModal('Wedding Website')">Make our wedding website</button>
+  </aside>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Royal invites that open like a <em>Palace Haveli.</em></h1>
+        <p class="hero-sub">
+          We make digital wedding invites that look beautiful and play music. Guests can reply on WhatsApp.
+        </p>
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="openBookingModal('Wedding Website')">
+            Make our wedding website
+          </button>
+        </div>
+      </div>
+
+      <!-- Visual Collage -->
+      <div class="hero-Visual">
+        <div class="card-white-textured">
+          <div class="monogram-circle" id="heroMonogram1">R</div>
+          <small style="font-size:10px; letter-spacing:1.5px; color:#6E6259;" id="heroCoupleLabel">AARAV & ANANYA</small>
+        </div>
+
+        <div class="card-maroon-arch">
+          <div class="monogram-circle" style="border-color:#D4B475; color:#D4B475;">W</div>
+          <small style="font-size:10px; letter-spacing:1.5px;">ROYAL HAVELI</small>
+        </div>
+
+        <div class="card-red-box">
+          <div class="card-red-label">W</div>
+        </div>
+
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-arch-overlay">
+              <div>
+                <div style="font-size:9px; letter-spacing:2px; text-transform:uppercase; color:#D4B475;">Royal Invite</div>
+                <div style="font-family:var(--serif); font-size:20px; margin-top:4px;" class="dynamic-couple">Vansh & Kavya</div>
+              </div>
+              <div style="font-size:11px; color:#E5C88F; opacity:0.9;">
+                Tap to open the invite &#8594;
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Invites Section -->
+  <section class="trending-section" id="trending">
+    <div class="container">
+      <h2 class="section-title">Popular invites<br>for 2026–27 weddings</h2>
+      <p class="section-subtitle">Tap an invite to see how your guests will see it.</p>
+
+      <!-- Cards are rendered from the TEMPLATES list in the script below -->
+      <div class="cards-carousel" id="trendingCarousel"></div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How it works</h2>
+
+      <div class="steps-list">
+        <div class="step-row">
+          <div class="step-circle">1</div>
+          <div class="step-text">
+            <h3>Type your names</h3>
+            <p>Every invite on this page changes to show your names.</p>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-circle">2</div>
+          <div class="step-text">
+            <h3>Pick your design</h3>
+            <p>Choose a design you like. Then add your wedding events.</p>
+          </div>
+        </div>
+
+        <div class="step-row">
+          <div class="step-circle">3</div>
+          <div class="step-text">
+            <h3>Send it to the family group</h3>
+            <p>Send each family a link on WhatsApp. Their replies come straight to you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Name Personalizer -->
+  <div class="container">
+    <div class="personalize-banner">
+      <h2>Start with your names</h2>
+      <p>See every invite on this page with your names on it.</p>
+      <div class="name-input-group">
+        <input type="text" id="brideNameInput" class="name-input" placeholder="Bride's Name (e.g. Swati)" />
+        <input type="text" id="groomNameInput" class="name-input" placeholder="Groom's Name (e.g. Shubham)" />
+        <button class="btn-primary" onclick="applyCoupleNames()">See my names</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Questions (FAQ) -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <h2 class="section-title">Questions</h2>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can we make changes after sending?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Your invite is a live link, so you can change the timings or places anytime. Guests see the new details right away.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does it work in Hindi?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. We can make your invite in Hindi, English, Gujarati or Marathi. We can also use two languages together.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can we also print the invitation?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. You also get print-ready cards, a couple logo and welcome board files.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do guests reply?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Guests tap the RSVP button in your invite. They tell you if they are coming, how many people will come and how they will travel. You get the reply on WhatsApp and in your RSVP sheet.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can some families see only some events?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. You can make a different link for each group. For example, one link for the reception only and another for all the events.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do our guests need an app?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            No. Guests tap the link on WhatsApp and the invite opens right away, with music. It works on any smartphone.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <a href="#" class="brand-logo">
+        <svg class="lotus-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 6C27 16 25 24 32 32C39 24 37 16 32 6Z"/>
+          <path d="M14 14C16 25 21 31 32 32C25 21 22 15 14 14Z" opacity="0.85"/>
+          <path d="M50 14C42 15 39 21 32 32C43 31 48 25 50 14Z" opacity="0.85"/>
+          <path d="M6 32C16 37 24 39 32 32C24 25 16 27 6 32Z" opacity="0.75"/>
+          <path d="M58 32C48 27 40 25 32 32C40 39 48 37 58 32Z" opacity="0.75"/>
+          <path d="M14 50C22 49 25 43 32 32C21 33 16 39 14 50Z" opacity="0.85"/>
+          <path d="M50 50C48 39 43 33 32 32C39 43 42 49 50 50Z" opacity="0.85"/>
+          <path d="M32 58C37 48 39 40 32 32C25 40 27 48 32 58Z"/>
+        </svg>
+        <div class="brand-hindi-stack">
+          <span class="brand-hindi">रक्ष</span>
+          <span class="brand-roman">Raksh</span>
+        </div>
+        <span class="brand-studio">STUDIO</span>
+      </a>
+
+      <p class="footer-bio">
+        We make digital wedding invites, wedding websites with RSVP, couple logos, welcome boards, event cards and pre-wedding photos.
+      </p>
+
+      <h4 class="footer-heading">Wedding studio</h4>
+      <ul class="footer-links">
+        <li><a href="#trending">Unique wedding invites</a></li>
+        <li><a href="#trending">Trending invites</a></li>
+        <li><a href="#" onclick="openBookingModal('Unique Wedding Website')">Unique wedding website</a></li>
+        <li><a href="#" onclick="openBookingModal('Custom Wedding Website')">Custom wedding website</a></li>
+        <li><a href="#trending">Wedding website examples</a></li>
+        <li><a href="#" onclick="openBookingModal('WhatsApp RSVP Invite')">RSVP on WhatsApp</a></li>
+        <li><a href="#" onclick="openBookingModal('Wedding Logos')">Wedding logos</a></li>
+        <li><a href="#" onclick="openBookingModal('Couple Monogram')">Couple logo</a></li>
+        <li><a href="#" onclick="openBookingModal('Save The Date')">Save the date</a></li>
+        <li><a href="#faq">Card wording</a></li>
+        <li><a href="#trending">Invitation ideas</a></li>
+      </ul>
+
+      <div class="event-tags">
+        <span>Engagement</span>
+        <span>Haldi</span>
+        <span>Mehndi</span>
+        <span>Sangeet</span>
+        <span>Reception</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Bottom Pill Bar -->
+  <div class="floating-dock">
+    <button class="dock-btn-website" onclick="openBookingModal('Wedding Website')">
+      Make our website
+    </button>
+  </div>
+
+  <!-- Template Website Preview -->
+  <div class="preview-modal" id="previewModal" aria-hidden="true">
+    <div class="preview-shell" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
+      <div class="preview-bar">
+        <button class="preview-back" id="previewBackBtn" aria-label="Close preview">&larr;</button>
+        <div class="preview-title" id="previewTitle">Preview</div>
+        <button class="preview-use" id="previewUseBtn">Use this design</button>
+      </div>
+      <div class="preview-body">
+        <div class="preview-loader" id="previewLoader">
+          <div class="spinner"></div>
+          <span>Loading invite…</span>
+        </div>
+        <iframe id="previewFrame" title="Template preview" allow="autoplay; fullscreen"></iframe>
+        <div class="preview-soon" id="previewSoon">
+          <div class="soon-mark">&#10022;</div>
+          <h4>Coming soon</h4>
+          <p>We are still making this design. Tap "Use this design" and we will send you a sample on WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive WhatsApp Booking Modal -->
+  <div class="modal-backdrop" id="bookingModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeBookingModal()">&times;</button>
+      <h3 id="modalTitle">Start your invite</h3>
+      <p>Fill in your details and get a sample with your names on WhatsApp.</p>
+      <form onsubmit="sendToWhatsApp(event)">
+        <input type="hidden" id="selectedService" value="Wedding Website" />
+        <div class="form-group">
+          <label>Couple names</label>
+          <input type="text" id="modalCoupleName" class="form-control" placeholder="e.g. Tanya & Vikram" required />
+        </div>
+        <div class="form-group">
+          <label>Wedding date or month</label>
+          <input type="text" id="modalWeddingDate" class="form-control" placeholder="e.g. December 2026" required />
+        </div>
+        <div class="form-group">
+          <label>Design</label>
+          <!-- Options are filled automatically from the TEMPLATES list -->
+          <select id="modalTheme" class="form-control"></select>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; margin-top:8px;">
+          Get a sample on WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    /* =====================================================================
+       TEMPLATES — saare invite cards yahin se bante hain.
+       Naya template banao to bas ek object aur add kar do.
+
+       id      : unique naam (spaces nahi)
+       title   : card ka naam
+       tagline : card ke neeche chhoti line
+       url     : template website ki file / link. Card tap karte hi yahi
+                 full-screen preview me khulega.
+                 Khaali ('') chhodo to "Coming soon" screen dikhegi.
+       cover   : card ki background image (apna screenshot bhi laga sakte ho)
+       couple  : card pe dikhne wale naam (live names se badal jaate hain)
+       date    : card pe dikhne wali date
+       ===================================================================== */
+    const TEMPLATES = [
+      {
+        id: 'deepotsav',
+        title: 'Deepotsav',
+        tagline: 'Tap and see the riverside steps light up with diyas.',
+        url: 'templates/deepotsav.html',
+        cover: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80',
+        couple: 'Vansh & Riya',
+        date: '12–14 FEBRUARY 2027'
+      },
+      {
+        id: 'ayodhya-darbar',
+        title: 'Ayodhya Darbar',
+        tagline: 'Scroll to walk through a temple courtyard.',
+        url: 'templates/ayodhya-darbar.html',
+        cover: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80',
+        couple: 'Vansh & Riya',
+        date: '12–14 FEBRUARY 2027'
+      },
+      {
+        id: 'pichola-shimmer',
+        title: 'Pichola Shimmer',
+        tagline: 'Watch lanterns float on a lake with soft music.',
+        url: 'templates/pichola-shimmer.html',
+        cover: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80',
+        couple: 'Vansh & Riya',
+        date: '18–20 NOVEMBER 2026'
+      }
+    ];
+
+    // ---------- Render cards from TEMPLATES ----------
+    function cardHTML(t) {
+      return `
+        <div class="invite-item" data-template="${t.id}" role="button" tabindex="0" aria-label="Preview ${t.title}">
+          <div class="invite-card">
+            <img class="invite-bg" src="${t.cover}" alt="${t.title}" loading="lazy">
+            <div class="invite-overlay"></div>
+            <div class="card-top">
+              <span class="badge-signature">&#10022; Signature</span>
+              <div class="card-couple-header">
+                <small>You are invited to the wedding of</small>
+                <div class="card-couple-name dynamic-couple">${t.couple}</div>
+                <div class="card-couple-date">${t.date}</div>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="preview-pill">&#9654; Preview</span>
+            </div>
+          </div>
+          <div class="invite-meta">
+            <h3>${t.title}</h3>
+            <p>${t.tagline}</p>
+          </div>
+        </div>`;
+    }
+
+    function renderTemplates() {
+      document.getElementById('trendingCarousel').innerHTML = TEMPLATES.map(cardHTML).join('');
+      // Design dropdown in the booking form
+      document.getElementById('modalTheme').innerHTML =
+        TEMPLATES.map(t => `<option value="${t.title}">${t.title}</option>`).join('');
+    }
+    renderTemplates();
+
+    // ---------- Mobile Drawer Toggle ----------
+    const openDrawerBtn = document.getElementById('openDrawerBtn');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const sideDrawer = document.getElementById('sideDrawer');
+
+    function toggleDrawer(open) {
+      sideDrawer.classList.toggle('active', open);
+      drawerOverlay.classList.toggle('active', open);
+    }
+
+    openDrawerBtn.addEventListener('click', () => toggleDrawer(true));
+    closeDrawerBtn.addEventListener('click', () => toggleDrawer(false));
+    drawerOverlay.addEventListener('click', () => toggleDrawer(false));
+    document.querySelectorAll('.drawer-link').forEach(link => {
+      link.addEventListener('click', () => toggleDrawer(false));
+    });
+
+    // ---------- FAQ Accordion ----------
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+
+    // ---------- Live Name Personalizer ----------
+    function applyCoupleNames() {
+      const bride = document.getElementById('brideNameInput').value.trim();
+      const groom = document.getElementById('groomNameInput').value.trim();
+      if (!bride && !groom) return;
+
+      const combined = bride && groom ? `${bride} & ${groom}` : (bride || groom);
+      document.querySelectorAll('.dynamic-couple').forEach(el => {
+        el.textContent = combined;
+      });
+      document.getElementById('heroCoupleLabel').textContent = combined.toUpperCase();
+      document.getElementById('heroMonogram1').textContent = combined.charAt(0).toUpperCase();
+      document.getElementById('modalCoupleName').value = combined;
+      document.getElementById('trending').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ---------- Booking Modal ----------
+    const bookingModal = document.getElementById('bookingModal');
+    const themeSelect = document.getElementById('modalTheme');
+
+    function openBookingModal(serviceName, themeTitle) {
+      document.getElementById('selectedService').value = serviceName;
+      document.getElementById('modalTitle').textContent = serviceName;
+      if (themeTitle) themeSelect.value = themeTitle;
+      bookingModal.classList.add('active');
+    }
+
+    function closeBookingModal() {
+      bookingModal.classList.remove('active');
+    }
+
+    // ---------- Template Website Preview ----------
+    const previewModal = document.getElementById('previewModal');
+    const previewFrame = document.getElementById('previewFrame');
+    const previewLoader = document.getElementById('previewLoader');
+    const previewSoon = document.getElementById('previewSoon');
+    const previewTitle = document.getElementById('previewTitle');
+    let currentTemplate = null;
+
+    function openPreview(id) {
+      const t = TEMPLATES.find(x => x.id === id);
+      if (!t) return;
+      currentTemplate = t;
+      previewTitle.textContent = t.title;
+
+      if (t.url) {
+        previewSoon.classList.remove('show');
+        previewFrame.classList.remove('hidden');
+        previewLoader.classList.remove('hidden');
+        previewFrame.src = t.url;
+      } else {
+        previewFrame.classList.add('hidden');
+        previewFrame.src = 'about:blank';
+        previewLoader.classList.add('hidden');
+        previewSoon.classList.add('show');
+      }
+
+      previewModal.classList.add('active');
+      previewModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      try { history.pushState({ preview: true }, ''); } catch (err) {}
+    }
+
+    function closePreview(fromPopState) {
+      if (!previewModal.classList.contains('active')) return;
+      previewModal.classList.remove('active');
+      previewModal.setAttribute('aria-hidden', 'true');
+      previewFrame.src = 'about:blank';
+      document.body.style.overflow = '';
+      if (!fromPopState && history.state && history.state.preview) history.back();
+    }
+
+    previewFrame.addEventListener('load', () => {
+      const src = previewFrame.getAttribute('src');
+      if (src && src !== 'about:blank') previewLoader.classList.add('hidden');
+    });
+
+    document.getElementById('previewBackBtn').addEventListener('click', () => closePreview());
+
+    document.getElementById('previewUseBtn').addEventListener('click', () => {
+      const t = currentTemplate;
+      closePreview();
+      if (t) openBookingModal(t.title + ' Invite', t.title);
+    });
+
+    // Phone ka back button bhi preview band kare
+    window.addEventListener('popstate', () => closePreview(true));
+
+    // Card tap -> preview
+    document.addEventListener('click', (e) => {
+      const card = e.target.closest('[data-template]');
+      if (card) openPreview(card.dataset.template);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePreview();
+        closeBookingModal();
+      }
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('[data-template]')) {
+        e.preventDefault();
+        openPreview(e.target.dataset.template);
+      }
+    });
+
+    // ---------- Direct WhatsApp Dispatch ----------
+    function sendToWhatsApp(e) {
+      e.preventDefault();
+      const service = document.getElementById('selectedService').value;
+      const couple = document.getElementById('modalCoupleName').value.trim();
+      const date = document.getElementById('modalWeddingDate').value.trim();
+      const theme = document.getElementById('modalTheme').value;
+
+      const message = `Hi Raksh Studio! ✨\nWe want to make our *${service}*.\n\n👫 *Couple:* ${couple}\n📅 *Wedding date:* ${date}\n🎨 *Design:* ${theme}`;
+      window.open(`https://wa.me/919824160664?text=${encodeURIComponent(message)}`, '_blank');
+      closeBookingModal();
+    }
+  </script>
+</body>
+</html>
