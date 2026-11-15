@@ -12,16 +12,16 @@
   <style>
     :root {
       --bg-warm: #702C3B;
-      --bg-card-light: #7B1121; /* Upgraded to exact existing primary burgundy */
+      --bg-card-light: #7B1121;
       --crimson: #7B1121;
       --crimson-hover: #961629;
-      --gold-badge: #D4B475;
+      --gold-badge: #7B1121;
       --ivory-soft: #FFF8E7;
       --text-dark: #1E1918;
       --text-muted: #524C49;
       --text-light: #FFFFFF;
       --border-subtle: rgba(30, 25, 24, 0.14);
-      --border-gold: rgba(212, 180, 117, 0.35);
+      --border-gold: rgba(123, 17, 33, 0.35);
       --serif: 'Cormorant Garamond', Georgia, serif;
       --sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
       --hindi: 'Rozha One', serif;
@@ -52,11 +52,27 @@
       display: none !important;
     }
 
-    /* Container */
     .container {
       max-width: 1140px;
       margin: 0 auto;
       padding: 0 20px;
+    }
+
+    /* =====================================================================
+       OUTLINED LUXURY CARDS FOR SECTIONS AFTER HERO (BURGUNDY RED OUTLINE)
+       ===================================================================== */
+    .outlined-section-card {
+      background: #FFFDF9;
+      border: 1.5px solid var(--crimson);
+      box-shadow: 0 0 0 4px rgba(123, 17, 33, 0.08), 0 14px 34px rgba(30, 25, 24, 0.06);
+      border-radius: 22px;
+      position: relative;
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .outlined-section-card:hover {
+      border-color: var(--crimson-hover);
+      box-shadow: 0 0 0 4px rgba(123, 17, 33, 0.14), 0 18px 40px rgba(123, 17, 33, 0.12);
     }
 
     /* Header / Navbar */
@@ -83,7 +99,6 @@
       color: var(--text-dark);
     }
 
-    /* Official Uploaded Symbolic Logo Styling */
     .brand-logo-img {
       width: 42px;
       height: 42px;
@@ -136,7 +151,7 @@
       height: 44px;
       border-radius: 50%;
       background: var(--crimson);
-      border: 1px solid var(--border-gold);
+      border: 1px solid var(--crimson);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -176,7 +191,7 @@
       box-shadow: -12px 0 40px rgba(0, 0, 0, 0.12);
       z-index: 95;
       padding: 28px 24px;
-      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: right 0.30s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -219,14 +234,12 @@
       grid-template-columns: 1fr;
       gap: 44px;
       align-items: center;
+      max-width: 760px;
     }
 
     @media (min-width: 920px) {
       .hero {
         padding: 64px 0 84px;
-      }
-      .hero-grid {
-        grid-template-columns: 1.02fr 0.98fr;
       }
     }
 
@@ -277,7 +290,7 @@
     .btn-primary {
       background: var(--crimson);
       color: #FFFFFF;
-      border: 1px solid rgba(212, 180, 117, 0.3);
+      border: 1.5px solid var(--crimson);
       border-radius: 999px;
       padding: 18px 28px;
       font-size: 16px;
@@ -298,11 +311,10 @@
       transform: translateY(-2px);
     }
 
-    /* High-contrast Ivory & Gold Buttons for inside Burgundy Boxes */
     .btn-ivory {
       background: var(--ivory-soft);
       color: var(--crimson);
-      border: 1px solid var(--gold-badge);
+      border: 1.5px solid var(--crimson);
       border-radius: 999px;
       padding: 15px 24px;
       font-size: 15px;
@@ -315,7 +327,7 @@
       gap: 8px;
       text-decoration: none;
       transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 8px 20px rgba(123, 17, 33, 0.14);
     }
 
     .btn-ivory:hover {
@@ -324,9 +336,9 @@
     }
 
     .btn-outline-gold {
-      background: rgba(255, 248, 231, 0.08);
-      color: #FFFFFF;
-      border: 1px solid var(--gold-badge);
+      background: rgba(123, 17, 33, 0.04);
+      color: var(--crimson);
+      border: 1.5px solid var(--crimson);
       border-radius: 999px;
       padding: 14px 22px;
       font-size: 14px;
@@ -342,258 +354,10 @@
     }
 
     .btn-outline-gold:hover {
-      background: rgba(212, 180, 117, 0.22);
+      background: rgba(123, 17, 33, 0.08);
       transform: translateY(-2px);
     }
 
-    /* =====================================================================
-       2. NEW EDITORIAL ARCHITECTURAL HERO PRESENTATION
-       Completely replaces old overlapping cards & phone mockup.
-       ===================================================================== */
-    @keyframes editorialFadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .editorial-stage {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      animation: editorialFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-
-    @media (min-width: 580px) {
-      .editorial-stage {
-        grid-template-columns: 1.25fr 0.75fr;
-        align-items: stretch;
-      }
-    }
-
-    /* Main Architectural Jharokha Monolith (Burgundy) */
-    .editorial-monolith {
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-radius: 26px;
-      padding: 28px 24px;
-      position: relative;
-      box-shadow: 0 22px 48px rgba(123, 17, 33, 0.26);
-      border: 1px solid var(--border-gold);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .editorial-monolith:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 28px 56px rgba(123, 17, 33, 0.34);
-    }
-
-    .editorial-monolith::before {
-      content: "";
-      position: absolute;
-      inset: 12px;
-      border: 1px solid rgba(212, 180, 117, 0.32);
-      border-radius: 180px 180px 16px 16px;
-      pointer-events: none;
-    }
-
-    .monolith-top-meta {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold-badge);
-      padding: 0 8px;
-    }
-
-    .monolith-center {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 36px 12px 24px;
-    }
-
-    .monolith-crest {
-      width: 66px;
-      height: 66px;
-      margin: 0 auto 14px;
-      border-radius: 50%;
-      border: 1.5px solid var(--gold-badge);
-      background: rgba(255, 248, 231, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--gold-badge);
-    }
-
-    .monolith-kicker {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 15px;
-      color: var(--ivory-soft);
-      opacity: 0.92;
-    }
-
-    .monolith-couple-title {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4vw, 36px);
-      font-weight: 700;
-      color: #FFFFFF;
-      margin: 6px 0;
-      line-height: 1.12;
-    }
-
-    .monolith-sub-label {
-      font-size: 11px;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
-      color: var(--gold-badge);
-    }
-
-    /* Ready-for-upload image slot inside Hero Editorial Layout */
-    .editorial-upload-frame {
-      position: relative;
-      z-index: 2;
-      margin-top: 14px;
-      aspect-ratio: 16 / 10;
-      border-radius: 14px;
-      border: 1px dashed rgba(212, 180, 117, 0.55);
-      background: rgba(255, 248, 231, 0.05);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .editorial-upload-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .editorial-upload-frame img[src=""] {
-      display: none;
-    }
-
-    .upload-slot-placeholder {
-      text-align: center;
-      padding: 16px;
-      color: var(--ivory-soft);
-    }
-
-    .upload-slot-placeholder .slot-ornament {
-      color: var(--gold-badge);
-      font-size: 18px;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .upload-slot-placeholder strong {
-      display: block;
-      font-family: var(--serif);
-      font-size: 18px;
-      color: #FFFFFF;
-      font-weight: 600;
-    }
-
-    .upload-slot-placeholder small {
-      font-size: 11px;
-      color: var(--ivory-soft);
-      opacity: 0.8;
-      letter-spacing: 0.5px;
-    }
-
-    /* Asymmetrical Right Column Editorial Panels (Burgundy) */
-    .editorial-side-column {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .editorial-atelier-card {
-      flex: 1;
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-radius: 22px;
-      padding: 22px 20px;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 16px 36px rgba(123, 17, 33, 0.2);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease;
-    }
-
-    .editorial-atelier-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .atelier-tag {
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold-badge);
-      font-weight: 700;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .editorial-atelier-card h3 {
-      font-family: var(--serif);
-      font-size: 23px;
-      font-weight: 600;
-      color: #FFFFFF;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-
-    .editorial-atelier-card p {
-      font-size: 13.5px;
-      color: var(--ivory-soft);
-      line-height: 1.5;
-    }
-
-    .atelier-Upload-Square {
-      aspect-ratio: 4 / 3;
-      border-radius: 14px;
-      border: 1px dashed rgba(212, 180, 117, 0.5);
-      background: rgba(255, 248, 231, 0.05);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 12px;
-    }
-
-    .atelier-Upload-Square img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .atelier-Upload-Square img[src=""] {
-      display: none;
-    }
-
-    /* Section Headings (On White Page Background) */
     .section-title {
       font-family: var(--serif);
       font-size: clamp(34px, 6.5vw, 52px);
@@ -610,27 +374,21 @@
       max-width: 680px;
     }
 
-    /* =====================================================================
-       1. BURGUNDY CARDS & HIGHLIGHTED CONTAINERS
-       All boxes use var(--crimson) (#7B1121) with #FFFFFF & #FFF8E7 text
-       ===================================================================== */
-
-    /* About Section */
-    .about-section {
+    /* Sections converted to Outlined Luxury Cards */
+    .about-section,
+    .services-section,
+    .collections-section,
+    .trending-section,
+    .how-section,
+    .why-section,
+    .faq-section,
+    .enquiry-section,
+    .final-cta-section {
       padding: 36px 0 56px;
     }
 
     .about-box {
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-radius: 26px;
       padding: 44px 32px;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 20px 44px rgba(123, 17, 33, 0.22);
-    }
-
-    .about-box .section-title {
-      color: #FFFFFF;
     }
 
     .about-paragraphs {
@@ -640,7 +398,7 @@
       margin-top: 18px;
       max-width: 780px;
       font-size: 16px;
-      color: var(--ivory-soft);
+      color: var(--text-muted);
       line-height: 1.65;
     }
 
@@ -649,15 +407,8 @@
       font-size: 23px;
       font-weight: 600;
       font-style: italic;
-      color: var(--gold-badge);
+      color: var(--crimson);
       margin-top: 4px;
-    }
-
-    /* Services & Collections Grid */
-    .services-section,
-    .collections-section,
-    .why-section {
-      padding: 36px 0 56px;
     }
 
     .cards-grid-4 {
@@ -679,32 +430,20 @@
       }
     }
 
-    /* Service Cards (Burgundy) */
     .studio-card {
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-radius: 22px;
       padding: 28px 24px;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 14px 32px rgba(123, 17, 33, 0.2);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .studio-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(123, 17, 33, 0.28);
     }
 
     .studio-card-num {
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      background: rgba(212, 180, 117, 0.16);
-      border: 1px solid var(--gold-badge);
-      color: var(--gold-badge);
+      background: rgba(123, 17, 33, 0.08);
+      border: 1.5px solid var(--crimson);
+      color: var(--crimson);
       font-family: var(--serif);
       font-size: 20px;
       font-weight: 700;
@@ -718,35 +457,26 @@
       font-family: var(--serif);
       font-size: 24px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--text-dark);
       margin-bottom: 8px;
       line-height: 1.2;
     }
 
     .studio-card p {
       font-size: 15px;
-      color: var(--ivory-soft);
+      color: var(--text-muted);
       line-height: 1.55;
     }
 
-    /* 3. Design Category Cards (Burgundy + Ready-for-Upload Image Containers, Zero Stock Photos) */
     .collection-card {
       height: 330px;
       border-radius: 22px;
       position: relative;
       overflow: hidden;
-      background-color: var(--crimson);
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 14px 30px rgba(123, 17, 33, 0.22);
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    .collection-card:hover {
-      transform: translateY(-5px);
     }
 
     .collection-image-slot {
@@ -754,8 +484,8 @@
       width: 100%;
       flex: 1;
       border-radius: 14px;
-      border: 1px dashed rgba(212, 180, 117, 0.45);
-      background: rgba(255, 248, 231, 0.05);
+      border: 1.5px dashed rgba(123, 17, 33, 0.55);
+      background: rgba(255, 248, 231, 0.5);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -779,16 +509,12 @@
       display: none;
     }
 
-    .collection-card:hover .collection-image-slot img {
-      transform: scale(1.05);
-    }
-
     .slot-monogram {
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      border: 1px solid var(--gold-badge);
-      color: var(--gold-badge);
+      border: 1.5px solid var(--crimson);
+      color: var(--crimson);
       font-family: var(--serif);
       font-size: 20px;
       display: flex;
@@ -801,40 +527,20 @@
       font-size: 11px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--ivory-soft);
-      opacity: 0.8;
-    }
-
-    .collection-card-content {
-      position: relative;
-      z-index: 2;
-      color: #FFFFFF;
+      color: var(--text-muted);
     }
 
     .collection-card-content h3 {
       font-family: var(--serif);
       font-size: 26px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--text-dark);
       margin-bottom: 4px;
     }
 
     .collection-card-content p {
       font-size: 14px;
-      color: var(--ivory-soft);
-    }
-
-    .section-cta-wrap {
-      margin-top: 32px;
-      display: flex;
-      justify-content: flex-start;
-    }
-
-    /* =====================================================================
-       5. LIVE IFRAME WEBSITE PREVIEWS SECTION (BURGUNDY PORTFOLIO CARDS)
-       ===================================================================== */
-    .trending-section {
-      padding: 40px 0 60px;
+      color: var(--text-muted);
     }
 
     .feature-highlights {
@@ -848,18 +554,18 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--crimson);
-      color: #FFFFFF;
+      background: #FFFDF9;
+      color: var(--text-dark);
       font-size: 13px;
       font-weight: 600;
       padding: 9px 16px;
       border-radius: 999px;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 6px 16px rgba(123, 17, 33, 0.16);
+      border: 1.5px solid var(--crimson);
+      box-shadow: 0 4px 12px rgba(123, 17, 33, 0.05);
     }
 
     .feature-pill span {
-      color: var(--gold-badge);
+      color: var(--crimson);
     }
 
     .live-portfolio-grid {
@@ -881,21 +587,10 @@
     }
 
     .portfolio-experience-card {
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-radius: 26px;
       padding: 20px;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 20px 44px rgba(123, 17, 33, 0.24);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .portfolio-experience-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 26px 54px rgba(123, 17, 33, 0.32);
     }
 
     .portfolio-card-top {
@@ -910,8 +605,9 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      background: var(--gold-badge);
-      color: #1F1610;
+      background: rgba(123, 17, 33, 0.08);
+      color: var(--crimson);
+      border: 1.5px solid var(--crimson);
       font-size: 12px;
       font-weight: 700;
       padding: 5px 12px;
@@ -922,18 +618,17 @@
       font-family: var(--serif);
       font-style: italic;
       font-size: 15px;
-      color: var(--ivory-soft);
+      color: var(--text-muted);
     }
 
-    /* Live Iframe Viewport Container */
     .iframe-viewport {
       position: relative;
       width: 100%;
       aspect-ratio: 9 / 14;
       border-radius: 18px;
       overflow: hidden;
-      background: #2A070D;
-      border: 1.5px solid rgba(212, 180, 117, 0.45);
+      background: #FAF3E8;
+      border: 1.5px solid var(--crimson);
       margin-bottom: 18px;
     }
 
@@ -946,16 +641,12 @@
       scrollbar-width: none;
     }
 
-    .iframe-viewport iframe::-webkit-scrollbar {
-      display: none;
-    }
-
     .iframe-loading-overlay {
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: var(--crimson);
-      color: var(--ivory-soft);
+      background: #FFFDF9;
+      color: var(--text-dark);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -971,13 +662,12 @@
       pointer-events: none;
     }
 
-    /* Fallback Card inside Viewport if X-Frame-Options/CSP blocks embedding */
     .iframe-fallback-card {
       position: absolute;
       inset: 0;
       z-index: 3;
-      background: var(--crimson);
-      color: #FFFFFF;
+      background: #FFFDF9;
+      color: var(--text-dark);
       display: none;
       flex-direction: column;
       align-items: center;
@@ -991,30 +681,18 @@
       display: flex;
     }
 
-    .iframe-fallback-card h4 {
-      font-family: var(--serif);
-      font-size: 26px;
-      color: #FFFFFF;
-    }
-
-    .iframe-fallback-card p {
-      font-size: 14px;
-      color: var(--ivory-soft);
-      max-width: 240px;
-    }
-
     .portfolio-card-body h3 {
       font-family: var(--serif);
       font-size: 28px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--text-dark);
       margin-bottom: 6px;
       line-height: 1.15;
     }
 
     .portfolio-card-body p {
       font-size: 14.5px;
-      color: var(--ivory-soft);
+      color: var(--text-muted);
       line-height: 1.55;
       margin-bottom: 18px;
     }
@@ -1028,21 +706,10 @@
     .portfolio-external-link {
       text-align: center;
       font-size: 12.5px;
-      color: var(--gold-badge);
+      color: var(--crimson);
       text-decoration: none;
       font-weight: 600;
       padding-top: 4px;
-      transition: opacity 0.2s;
-    }
-
-    .portfolio-external-link:hover {
-      opacity: 0.85;
-      text-decoration: underline;
-    }
-
-    /* How It Works Section (Burgundy Cards) */
-    .how-section {
-      padding: 36px 0 56px;
     }
 
     .steps-list {
@@ -1065,30 +732,20 @@
     }
 
     .step-row {
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-radius: 22px;
       padding: 26px 22px;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 14px 32px rgba(123, 17, 33, 0.2);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 16px;
-      transition: transform 0.3s ease;
-    }
-
-    .step-row:hover {
-      transform: translateY(-4px);
     }
 
     .step-circle {
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(212, 180, 117, 0.16);
-      border: 1px solid var(--gold-badge);
-      color: var(--gold-badge);
+      background: rgba(123, 17, 33, 0.08);
+      border: 1.5px solid var(--crimson);
+      color: var(--crimson);
       font-family: var(--serif);
       font-size: 20px;
       font-weight: 700;
@@ -1101,18 +758,17 @@
     .step-text h3 {
       font-size: 16px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--text-dark);
       margin-bottom: 6px;
       letter-spacing: 0.4px;
     }
 
     .step-text p {
       font-size: 14.5px;
-      color: var(--ivory-soft);
+      color: var(--text-muted);
       line-height: 1.55;
     }
 
-    /* Why Choose Raksh Studio (Burgundy Feature Boxes) */
     .benefits-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -1133,20 +789,10 @@
     }
 
     .benefit-item {
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-radius: 18px;
       padding: 18px 20px;
       display: flex;
       align-items: center;
       gap: 14px;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 12px 26px rgba(123, 17, 33, 0.18);
-      transition: transform 0.25s ease;
-    }
-
-    .benefit-item:hover {
-      transform: translateY(-3px);
     }
 
     .benefit-item .step-circle {
@@ -1158,12 +804,7 @@
     .benefit-item span {
       font-weight: 600;
       font-size: 15px;
-      color: #FFFFFF;
-    }
-
-    /* FAQ Accordion Section (Burgundy Cards) */
-    .faq-section {
-      padding: 24px 0 64px;
+      color: var(--text-dark);
     }
 
     .faq-container {
@@ -1174,12 +815,7 @@
     }
 
     .faq-item {
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-radius: 18px;
       padding: 0 22px;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 10px 24px rgba(123, 17, 33, 0.16);
     }
 
     .faq-question {
@@ -1195,14 +831,14 @@
       font-family: var(--sans);
       font-size: 17px;
       font-weight: 600;
-      color: #FFFFFF;
+      color: var(--text-dark);
       cursor: pointer;
     }
 
     .faq-icon {
       font-size: 24px;
       font-weight: 400;
-      color: var(--gold-badge);
+      color: var(--crimson);
       transition: transform 0.25s ease;
     }
 
@@ -1214,7 +850,7 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease, padding 0.3s ease;
-      color: var(--ivory-soft);
+      color: var(--text-muted);
       font-size: 15px;
       line-height: 1.6;
     }
@@ -1224,68 +860,8 @@
       padding-bottom: 20px;
     }
 
-    /* Start With Your Names Interactive Banner (Burgundy Container) */
-    .personalize-banner {
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-radius: 26px;
-      padding: 36px 24px;
-      margin-bottom: 56px;
-      text-align: center;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 18px 40px rgba(123, 17, 33, 0.22);
-    }
-
-    .personalize-banner h2 {
-      font-family: var(--serif);
-      font-size: clamp(30px, 5vw, 44px);
-      margin-bottom: 10px;
-      color: #FFFFFF;
-    }
-
-    .personalize-banner p {
-      color: var(--ivory-soft);
-      margin-bottom: 22px;
-      font-size: 15px;
-    }
-
-    .name-input-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      max-width: 560px;
-      margin: 0 auto;
-      justify-content: center;
-    }
-
-    .name-input {
-      flex: 1 1 180px;
-      padding: 15px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--gold-badge);
-      background: #FFFFFF;
-      color: var(--text-dark);
-      font-family: var(--sans);
-      font-size: 15px;
-      outline: none;
-    }
-
-    .name-input:focus {
-      box-shadow: 0 0 0 3px rgba(212, 180, 117, 0.35);
-    }
-
-    /* Premium Wedding Enquiry Form Section (Burgundy Box) */
-    .enquiry-section {
-      padding: 20px 0 64px;
-    }
-
     .enquiry-card {
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-radius: 26px;
       padding: 40px 24px;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 22px 48px rgba(123, 17, 33, 0.25);
       max-width: 820px;
       margin: 0 auto;
     }
@@ -1300,15 +876,6 @@
       text-align: center;
       max-width: 560px;
       margin: 0 auto 32px;
-    }
-
-    .enquiry-header .section-title {
-      color: #FFFFFF;
-    }
-
-    .enquiry-header .section-subtitle {
-      color: var(--ivory-soft);
-      margin-bottom: 0;
     }
 
     .enquiry-grid {
@@ -1330,42 +897,37 @@
       margin-bottom: 14px;
     }
 
-    .enquiry-grid .form-group {
-      margin-bottom: 0;
-    }
-
     .form-group label {
       display: block;
       font-size: 13px;
       font-weight: 600;
       margin-bottom: 6px;
-      color: #FFFFFF;
+      color: var(--text-dark);
     }
 
     .required-star {
-      color: var(--gold-badge);
+      color: var(--crimson);
     }
 
     .form-control {
       width: 100%;
       padding: 13px 15px;
       border-radius: 12px;
-      border: 1px solid rgba(212, 180, 117, 0.45);
+      border: 1.5px solid rgba(123, 17, 33, 0.55);
       background: #FFFFFF;
       font-family: var(--sans);
       font-size: 15px;
       color: var(--text-dark);
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     .form-control:focus {
-      border-color: var(--gold-badge);
-      box-shadow: 0 0 0 3px rgba(212, 180, 117, 0.35);
+      border-color: var(--crimson);
+      box-shadow: 0 0 0 3px rgba(123, 17, 33, 0.12);
     }
 
     .form-control.invalid {
-      border: 2px solid var(--gold-badge);
+      border: 2px solid var(--crimson);
     }
 
     textarea.form-control {
@@ -1376,7 +938,7 @@
     .field-error {
       display: none;
       font-size: 12px;
-      color: var(--gold-badge);
+      color: var(--crimson);
       margin-top: 5px;
       font-weight: 600;
     }
@@ -1385,19 +947,9 @@
       display: block;
     }
 
-    /* Final Call To Action (Burgundy Box) */
-    .final-cta-section {
-      padding: 12px 0 64px;
-    }
-
     .final-cta-banner {
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-radius: 26px;
       padding: 48px 24px;
       text-align: center;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 20px 44px rgba(123, 17, 33, 0.22);
     }
 
     .final-cta-banner h2 {
@@ -1406,11 +958,11 @@
       font-weight: 600;
       line-height: 1.1;
       margin-bottom: 14px;
-      color: #FFFFFF;
+      color: var(--text-dark);
     }
 
     .final-cta-banner p {
-      color: var(--ivory-soft);
+      color: var(--text-muted);
       font-size: 16px;
       max-width: 520px;
       margin: 0 auto 26px;
@@ -1475,13 +1027,13 @@
     }
 
     .event-tags span {
-      background: var(--crimson);
-      color: #FFFFFF;
+      background: #FFFDF9;
+      color: var(--crimson);
       font-size: 13px;
       font-weight: 600;
       padding: 6px 14px;
       border-radius: 999px;
-      border: 1px solid var(--border-gold);
+      border: 1.5px solid var(--crimson);
     }
 
     .footer-bottom-bar {
@@ -1506,14 +1058,9 @@
       color: var(--crimson);
       text-decoration: none;
       font-weight: 700;
-      transition: opacity 0.2s;
     }
 
-    .footer-social-links a:hover {
-      opacity: 0.8;
-    }
-
-    /* Floating Sticky Bottom Bar */
+    /* Floating Dock */
     .floating-dock {
       position: fixed;
       bottom: 16px;
@@ -1522,20 +1069,20 @@
       z-index: 60;
       width: calc(100% - 28px);
       max-width: 430px;
-      background: var(--crimson);
+      background: #FFFDF9;
       padding: 7px;
       border-radius: 999px;
       display: flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 18px 40px rgba(123, 17, 33, 0.42);
-      border: 1px solid var(--gold-badge);
+      box-shadow: 0 18px 40px rgba(30, 25, 24, 0.16);
+      border: 1.5px solid var(--crimson);
     }
 
     .dock-btn-website {
       flex: 1;
-      background: var(--ivory-soft);
-      color: var(--crimson);
+      background: var(--crimson);
+      color: #FFFFFF;
       border: none;
       padding: 13px 16px;
       border-radius: 999px;
@@ -1543,14 +1090,9 @@
       font-weight: 700;
       font-family: var(--sans);
       cursor: pointer;
-      transition: background 0.2s;
     }
 
-    .dock-btn-website:hover {
-      background: #FFFFFF;
-    }
-
-    /* Modal for Booking (Burgundy Card) */
+    /* Modals */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -1568,15 +1110,10 @@
     }
 
     .modal-card {
-      background: var(--crimson);
-      color: #FFFFFF;
       width: 100%;
       max-width: 440px;
-      border-radius: 26px;
       padding: 28px 24px;
       position: relative;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
     }
 
     .modal-close {
@@ -1586,24 +1123,11 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      border: 1px solid var(--border-gold);
-      background: rgba(255, 248, 231, 0.12);
-      color: #FFFFFF;
+      border: 1.5px solid var(--crimson);
+      background: #FFFDF9;
+      color: var(--crimson);
       font-size: 20px;
       cursor: pointer;
-    }
-
-    .modal-card h3 {
-      font-family: var(--serif);
-      font-size: 32px;
-      margin-bottom: 6px;
-      color: #FFFFFF;
-    }
-
-    .modal-card p {
-      font-size: 14px;
-      color: var(--ivory-soft);
-      margin-bottom: 20px;
     }
 
     /* Fullscreen Live Website Preview Modal */
@@ -1613,7 +1137,6 @@
       z-index: 120;
       background: rgba(15, 10, 10, 0.78);
       backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -1626,7 +1149,7 @@
     .preview-shell {
       width: 100%;
       height: 100%;
-      background: #FFFFFF;
+      background: #FFFDF9;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -1640,7 +1163,7 @@
         max-width: 430px;
         height: min(860px, 100%);
         border-radius: 28px;
-        border: 2px solid var(--gold-badge);
+        border: 2px solid var(--crimson);
         box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
       }
     }
@@ -1650,9 +1173,9 @@
       align-items: center;
       gap: 10px;
       padding: 10px 14px;
-      background: var(--crimson);
-      color: #FFFFFF;
-      border-bottom: 1px solid var(--border-gold);
+      background: #FFFDF9;
+      color: var(--text-dark);
+      border-bottom: 1.5px solid var(--crimson);
       flex-shrink: 0;
     }
 
@@ -1660,9 +1183,9 @@
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      border: 1px solid var(--border-gold);
-      background: rgba(255, 248, 231, 0.12);
-      color: #FFFFFF;
+      border: 1.5px solid var(--crimson);
+      background: transparent;
+      color: var(--crimson);
       font-size: 18px;
       cursor: pointer;
       flex-shrink: 0;
@@ -1674,26 +1197,26 @@
       font-family: var(--serif);
       font-size: 20px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--text-dark);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .preview-open-tab {
-      color: var(--gold-badge);
+      color: var(--crimson);
       font-size: 12px;
       font-weight: 600;
       text-decoration: none;
       padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid var(--border-gold);
+      border: 1.5px solid var(--crimson);
       white-space: nowrap;
     }
 
     .preview-use {
-      background: var(--ivory-soft);
-      color: var(--crimson);
+      background: var(--crimson);
+      color: #FFFFFF;
       border: none;
       border-radius: 999px;
       padding: 9px 14px;
@@ -1723,8 +1246,8 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: var(--crimson);
-      color: var(--ivory-soft);
+      background: #FFFDF9;
+      color: var(--text-dark);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1737,8 +1260,8 @@
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      border: 3px solid rgba(212, 180, 117, 0.25);
-      border-top-color: var(--gold-badge);
+      border: 3px solid rgba(123, 17, 33, 0.2);
+      border-top-color: var(--crimson);
       animation: spin 0.8s linear infinite;
     }
 
@@ -1750,8 +1273,8 @@
       position: absolute;
       inset: 0;
       z-index: 3;
-      background: var(--crimson);
-      color: #FFFFFF;
+      background: #FFFDF9;
+      color: var(--text-dark);
       display: none;
       flex-direction: column;
       align-items: center;
@@ -1764,24 +1287,6 @@
     .preview-soon.show {
       display: flex;
     }
-
-    .preview-soon .soon-mark {
-      font-size: 34px;
-      color: var(--gold-badge);
-    }
-
-    .preview-soon h4 {
-      font-family: var(--serif);
-      font-size: 30px;
-      font-weight: 700;
-      color: #FFFFFF;
-    }
-
-    .preview-soon p {
-      font-size: 15px;
-      color: var(--ivory-soft);
-      max-width: 300px;
-    }
   </style>
 </head>
 <body id="home">
@@ -1790,7 +1295,6 @@
   <header>
     <div class="container nav-wrap">
       <a href="#home" class="brand-logo">
-        <!-- 4. Official Uploaded Raksh Studio Symbolic Logo -->
         <img
           src="raksh-studio-logo.png"
           alt="Raksh Studio Symbolic Logo"
@@ -1818,7 +1322,7 @@
   <aside class="side-drawer" id="sideDrawer">
     <div>
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-weight:700; letter-spacing:1px;">RAKSH STUDIO</span>
+        <span style="font-weight:700; letter-spacing:1px; color:var(--crimson);">RAKSH STUDIO</span>
         <button class="menu-btn" id="closeDrawerBtn" aria-label="Close Menu">&times;</button>
       </div>
       <ul class="drawer-links">
@@ -1835,7 +1339,7 @@
     <a href="#contact" class="btn-primary drawer-link" style="margin-top:24px;">Create Your Wedding Website</a>
   </aside>
 
-  <!-- 2. Upgraded Hero Section with New Asymmetrical Editorial Presentation -->
+  <!-- Hero Section (Editorial Monolith & Side Cards Removed) -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
@@ -1852,66 +1356,13 @@
           </p>
         </div>
       </div>
-
-      <!-- Unique Architectural Editorial Showcase (No overlapping cards, no phone mockup, no stock photos) -->
-      <div class="editorial-stage">
-        <!-- Primary Royal Jharokha Monolith -->
-        <div class="editorial-monolith">
-          <div class="monolith-top-meta">
-            <span>RAKSH ATELIER</span>
-            <span>EDITION 2026–27</span>
-          </div>
-
-          <div class="monolith-center">
-            <div class="monolith-crest" id="heroMonogram1">R</div>
-            <span class="monolith-kicker">The Royal Celebration Suite</span>
-            <h2 class="monolith-couple-title dynamic-couple" id="heroCoupleLabel">Swati &amp; Shubham</h2>
-            <div class="monolith-sub-label">BESPOKE DIGITAL ARCHIVE</div>
-          </div>
-
-          <!-- Ready-to-use image container for your own hero showcase artwork -->
-          <div class="editorial-upload-frame">
-            <img src="coup.png" alt="Raksh Studio Hero Showcase" id="heroCustomArtwork" />
-            <div class="upload-slot-placeholder">
-              <span class="slot-ornament">&#10022;</span>
-              <strong>Signature Portrait Frame</strong>
-              <small>Ready for your custom artwork (assets/hero-showcase.jpg)</small>
-            </div>
-          </div>
-        </div>
-
-        <!-- Asymmetrical Editorial Side Column -->
-        <div class="editorial-side-column">
-          <div class="editorial-atelier-card">
-            <div>
-              <span class="atelier-tag">01 • BESPOKE ARCHITECTURE</span>
-              <h3>Interactive Haveli Portals &amp; Music</h3>
-              <p>Custom-choreographed entrances, sacred mantras and live WhatsApp RSVP suites.</p>
-            </div>
-            <!-- Ready-to-use image container for your secondary studio image -->
-            <div class="atelier-Upload-Square">
-              <img src="" alt="Raksh Studio Detail Artwork" id="heroDetailArtwork" />
-              <div class="upload-slot-placeholder">
-                <span class="slot-ornament">&#10022;</span>
-                <small>Custom Detail Slot<br>(assets/hero-detail.jpg)</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="editorial-atelier-card">
-            <span class="atelier-tag">02 • LIVE PORTFOLIO</span>
-            <h3>Crafted for Modern Indian Families</h3>
-            <p>Multi-event itineraries, venue navigation and instant guest confirmations in one link.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- About Raksh Studio (Burgundy Box with White/Ivory Text) -->
+  <!-- About Raksh Studio -->
   <section class="about-section" id="about">
     <div class="container">
-      <div class="about-box">
+      <div class="outlined-section-card about-box">
         <h2 class="section-title">Beyond Invitations, We Create Experiences.</h2>
         <div class="about-paragraphs">
           <p>At Raksh Studio, we believe every wedding tells a beautiful story.</p>
@@ -1923,12 +1374,12 @@
     </div>
   </section>
 
-  <!-- Our Services (Burgundy Cards) -->
+  <!-- Our Services -->
   <section class="services-section" id="services">
     <div class="container">
       <h2 class="section-title">What We Create</h2>
       <div class="cards-grid-4">
-        <div class="studio-card">
+        <div class="outlined-section-card studio-card">
           <div>
             <div class="studio-card-num">01</div>
             <h3>DIGITAL WEDDING INVITATIONS</h3>
@@ -1936,7 +1387,7 @@
           </div>
         </div>
 
-        <div class="studio-card">
+        <div class="outlined-section-card studio-card">
           <div>
             <div class="studio-card-num">02</div>
             <h3>WEDDING WEBSITES</h3>
@@ -1944,7 +1395,7 @@
           </div>
         </div>
 
-        <div class="studio-card">
+        <div class="outlined-section-card studio-card">
           <div>
             <div class="studio-card-num">03</div>
             <h3>PERSONALIZED INVITATIONS</h3>
@@ -1952,7 +1403,7 @@
           </div>
         </div>
 
-        <div class="studio-card">
+        <div class="outlined-section-card studio-card">
           <div>
             <div class="studio-card-num">04</div>
             <h3>RSVP &amp; GUEST MANAGEMENT</h3>
@@ -1963,12 +1414,12 @@
     </div>
   </section>
 
-  <!-- 3. Design Collection (Burgundy Cards + Clean Upload-Ready Image Containers, Stock Photos Removed) -->
+  <!-- Design Collection -->
   <section class="collections-section" id="designs">
     <div class="container">
       <h2 class="section-title">Designed for Your Kind of Love.</h2>
       <div class="cards-grid-4">
-        <div class="collection-card">
+        <div class="outlined-section-card collection-card">
           <div class="collection-image-slot">
             <img src="coup.png" alt="Royal Heritage Collection" data-collection-img="royal-heritage" />
             <div class="slot-monogram">I</div>
@@ -1980,7 +1431,7 @@
           </div>
         </div>
 
-        <div class="collection-card">
+        <div class="outlined-section-card collection-card">
           <div class="collection-image-slot">
             <img src="coup.png" alt="Floral Romance Collection" data-collection-img="floral-romance" />
             <div class="slot-monogram">II</div>
@@ -1992,7 +1443,7 @@
           </div>
         </div>
 
-        <div class="collection-card">
+        <div class="outlined-section-card collection-card">
           <div class="collection-image-slot">
             <img src="coup.png" alt="Modern Elegance Collection" data-collection-img="modern-elegance" />
             <div class="slot-monogram">III</div>
@@ -2004,7 +1455,7 @@
           </div>
         </div>
 
-        <div class="collection-card">
+        <div class="outlined-section-card collection-card">
           <div class="collection-image-slot">
             <img src="coup.png" alt="Cultural Traditions Collection" data-collection-img="cultural-traditions" />
             <div class="slot-monogram">IV</div>
@@ -2016,14 +1467,10 @@
           </div>
         </div>
       </div>
-
-      <div class="section-cta-wrap">
-        <a href="#trending" class="btn-primary">Explore All Designs</a>
-      </div>
     </div>
   </section>
 
-  <!-- 5 & 6. Live Iframe Website Previews in the Designs Portfolio Section -->
+  <!-- Live Website Previews Section -->
   <section class="trending-section" id="trending">
     <div class="container">
       <h2 class="section-title">Explore Our Wedding Experiences</h2>
@@ -2041,31 +1488,17 @@
         <span class="feature-pill"><span>&#10022;</span> RSVP</span>
       </div>
 
-      <!-- Live Iframe Portfolio Cards rendered dynamically from DESIGN_PORTFOLIO array -->
       <div class="live-portfolio-grid" id="livePortfolioGrid"></div>
     </div>
   </section>
 
-  <!-- Live Name Personalizer (Burgundy Box, Preserved Functionality) -->
-  <div class="container">
-    <div class="personalize-banner">
-      <h2>Start with your names</h2>
-      <p>See every invite on this page with your names on it.</p>
-      <div class="name-input-group">
-        <input type="text" id="brideNameInput" class="name-input" placeholder="Bride's Name (e.g. Swati)" />
-        <input type="text" id="groomNameInput" class="name-input" placeholder="Groom's Name (e.g. Shubham)" />
-        <button type="button" class="btn-ivory" onclick="applyCoupleNames()">See my names</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- How It Works (Burgundy Cards) -->
+  <!-- How It Works -->
   <section class="how-section" id="how-it-works">
     <div class="container">
       <h2 class="section-title">Your Celebration, Made Simple.</h2>
 
       <div class="steps-list">
-        <div class="step-row">
+        <div class="outlined-section-card step-row">
           <div class="step-circle">01</div>
           <div class="step-text">
             <h3>STEP 01 – SHARE YOUR STORY</h3>
@@ -2073,7 +1506,7 @@
           </div>
         </div>
 
-        <div class="step-row">
+        <div class="outlined-section-card step-row">
           <div class="step-circle">02</div>
           <div class="step-text">
             <h3>STEP 02 – CHOOSE YOUR DESIGN</h3>
@@ -2081,7 +1514,7 @@
           </div>
         </div>
 
-        <div class="step-row">
+        <div class="outlined-section-card step-row">
           <div class="step-circle">03</div>
           <div class="step-text">
             <h3>STEP 03 – MAKE IT YOURS</h3>
@@ -2089,7 +1522,7 @@
           </div>
         </div>
 
-        <div class="step-row">
+        <div class="outlined-section-card step-row">
           <div class="step-circle">04</div>
           <div class="step-text">
             <h3>STEP 04 – SHARE THE CELEBRATION</h3>
@@ -2100,40 +1533,40 @@
     </div>
   </section>
 
-  <!-- Why Choose Raksh Studio (Burgundy Feature Boxes) -->
+  <!-- Why Choose Raksh Studio -->
   <section class="why-section" id="why-choose-us">
     <div class="container">
       <h2 class="section-title">Little Details. Lasting Memories.</h2>
       <div class="benefits-grid">
-        <div class="benefit-item">
+        <div class="outlined-section-card benefit-item">
           <div class="step-circle">&#10022;</div>
           <span>Unique &amp; Personalized Designs</span>
         </div>
-        <div class="benefit-item">
+        <div class="outlined-section-card benefit-item">
           <div class="step-circle">&#10022;</div>
           <span>Beautiful Animations</span>
         </div>
-        <div class="benefit-item">
+        <div class="outlined-section-card benefit-item">
           <div class="step-circle">&#10022;</div>
           <span>Music-Enhanced Invitations</span>
         </div>
-        <div class="benefit-item">
+        <div class="outlined-section-card benefit-item">
           <div class="step-circle">&#10022;</div>
           <span>Mobile-Friendly Experience</span>
         </div>
-        <div class="benefit-item">
+        <div class="outlined-section-card benefit-item">
           <div class="step-circle">&#10022;</div>
           <span>Easy WhatsApp Sharing</span>
         </div>
-        <div class="benefit-item">
+        <div class="outlined-section-card benefit-item">
           <div class="step-circle">&#10022;</div>
           <span>Elegant Wedding Websites</span>
         </div>
-        <div class="benefit-item">
+        <div class="outlined-section-card benefit-item">
           <div class="step-circle">&#10022;</div>
           <span>Customized Event Details</span>
         </div>
-        <div class="benefit-item">
+        <div class="outlined-section-card benefit-item">
           <div class="step-circle">&#10022;</div>
           <span>Guest RSVP Experience</span>
         </div>
@@ -2141,21 +1574,13 @@
     </div>
   </section>
 
-  <!-- Testimonials (Hidden until genuine customer testimonials are available) -->
-  <section class="services-section hidden" id="testimonials" aria-hidden="true">
-    <div class="container">
-      <h2 class="section-title">Words That Warm Our Hearts.</h2>
-      <div class="cards-grid-4" id="testimonialsList"></div>
-    </div>
-  </section>
-
-  <!-- FAQ Section (Burgundy Accordion Boxes) -->
+  <!-- FAQ Section -->
   <section class="faq-section" id="faq">
     <div class="container">
       <h2 class="section-title">Everything You Need to Know.</h2>
 
       <div class="faq-container">
-        <div class="faq-item">
+        <div class="outlined-section-card faq-item">
           <button class="faq-question">
             <span>Can we customize our invitation?</span>
             <span class="faq-icon">+</span>
@@ -2165,7 +1590,7 @@
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="outlined-section-card faq-item">
           <button class="faq-question">
             <span>Can we add music?</span>
             <span class="faq-icon">+</span>
@@ -2175,7 +1600,7 @@
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="outlined-section-card faq-item">
           <button class="faq-question">
             <span>Can guests access the invitation on mobile?</span>
             <span class="faq-icon">+</span>
@@ -2185,7 +1610,7 @@
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="outlined-section-card faq-item">
           <button class="faq-question">
             <span>Can we include multiple wedding events?</span>
             <span class="faq-icon">+</span>
@@ -2195,7 +1620,7 @@
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="outlined-section-card faq-item">
           <button class="faq-question">
             <span>How will guests receive the invitation?</span>
             <span class="faq-icon">+</span>
@@ -2205,7 +1630,7 @@
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="outlined-section-card faq-item">
           <button class="faq-question">
             <span>Can we make changes after the invitation is created?</span>
             <span class="faq-icon">+</span>
@@ -2218,10 +1643,10 @@
     </div>
   </section>
 
-  <!-- Premium Wedding Enquiry Form (Burgundy Container) -->
+  <!-- Premium Wedding Enquiry Form -->
   <section class="enquiry-section" id="contact">
     <div class="container">
-      <div class="enquiry-card">
+      <div class="outlined-section-card enquiry-card">
         <div class="enquiry-header">
           <h2 class="section-title">Let's Create Something Beautiful.</h2>
           <p class="section-subtitle">
@@ -2277,6 +1702,7 @@
                 <option value="Royal Wedding Experience">Royal Wedding Experience</option>
                 <option value="Elegant Wedding Experience">Elegant Wedding Experience</option>
                 <option value="Modern Wedding Experience">Modern Wedding Experience</option>
+                <option value="Cinematic Royal Experience">Cinematic Royal Experience (Awp4)</option>
                 <option value="Royal Heritage">Royal Heritage</option>
                 <option value="Floral Romance">Floral Romance</option>
                 <option value="Modern Elegance">Modern Elegance</option>
@@ -2291,7 +1717,7 @@
             </div>
 
             <div class="full-span" style="margin-top:6px;">
-              <button type="submit" class="btn-ivory" style="width:100%;">
+              <button type="submit" class="btn-ivory" style="width:100%; background:var(--crimson); color:#FFFFFF;">
                 Send Enquiry on WhatsApp &rarr;
               </button>
             </div>
@@ -2301,16 +1727,16 @@
     </div>
   </section>
 
-  <!-- Final Call To Action (Burgundy Box) -->
+  <!-- Final Call To Action -->
   <section class="final-cta-section">
     <div class="container">
-      <div class="final-cta-banner">
+      <div class="outlined-section-card final-cta-banner">
         <h2>Every Love Story Deserves a Beautiful Beginning.</h2>
         <p>
           Let us turn your wedding invitation into something unforgettable.<br>
           Your story. Your traditions. Your celebration.
         </p>
-        <a href="#contact" class="btn-ivory">Create Your Wedding Website</a>
+        <a href="#contact" class="btn-primary">Create Your Wedding Website</a>
       </div>
     </div>
   </section>
@@ -2319,7 +1745,6 @@
   <footer>
     <div class="container">
       <a href="#home" class="brand-logo">
-        <!-- 4. Official Uploaded Raksh Studio Symbolic Logo -->
         <img
           src="raksh-studio-logo.png"
           alt="Raksh Studio Symbolic Logo"
@@ -2361,14 +1786,14 @@
       <div class="footer-bottom-bar">
         <span>&copy; 2026 Raksh Studio. All Rights Reserved.</span>
         <div class="footer-social-links">
-          <a href="https://wa.me/919824160664" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://wa.me/917490913399" target="_blank" rel="noopener">WhatsApp</a>
           <a href="#contact">Enquire Now</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Bottom Pill Bar -->
+  <!-- Floating Dock -->
   <div class="floating-dock">
     <button class="dock-btn-website" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
       Create Your Wedding Website
@@ -2389,23 +1814,23 @@
           <div class="spinner"></div>
           <span>Loading live wedding experience…</span>
         </div>
-        <iframe id="previewFrame" title="Live Wedding Website Preview" allow="autoplay; fullscreen"></iframe>
+        <iframe id="previewFrame" title="Live Website Preview" allow="autoplay; fullscreen"></iframe>
         <div class="preview-soon" id="previewSoon">
           <div class="soon-mark">&#10022;</div>
           <h4>Live Website Ready</h4>
-          <p>If your browser restricts embedded previews, open the full interactive experience directly in a new tab.</p>
+          <p>Open the full interactive experience directly in a new tab.</p>
           <a href="#" target="_blank" rel="noopener" class="btn-ivory" id="previewFallbackBtn" style="margin-top:8px;">Open Live Website &#8599;</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Interactive WhatsApp Booking Modal (Burgundy Card) -->
+  <!-- Booking Modal -->
   <div class="modal-backdrop" id="bookingModal">
-    <div class="modal-card">
+    <div class="outlined-section-card modal-card">
       <button class="modal-close" onclick="closeBookingModal()">&times;</button>
-      <h3 id="modalTitle">Start your invite</h3>
-      <p>Fill in your details and get a sample with your names on WhatsApp.</p>
+      <h3 id="modalTitle" style="font-family:var(--serif); font-size:30px; margin-bottom:6px;">Start your invite</h3>
+      <p style="font-size:14px; color:var(--text-muted); margin-bottom:20px;">Fill in your details and get a sample with your names on WhatsApp.</p>
       <form onsubmit="sendToWhatsApp(event)">
         <input type="hidden" id="selectedService" value="Wedding Website" />
         <div class="form-group">
@@ -2420,7 +1845,7 @@
           <label>Design</label>
           <select id="modalTheme" class="form-control"></select>
         </div>
-        <button type="submit" class="btn-ivory" style="width:100%; margin-top:8px;">
+        <button type="submit" class="btn-primary" style="width:100%; margin-top:8px;">
           Get a sample on WhatsApp
         </button>
       </form>
@@ -2428,18 +1853,7 @@
   </div>
 
   <script>
-    /* =====================================================================
-       WHATSAPP CONFIGURATION (Single place to update your WhatsApp number)
-       ===================================================================== */
-    const WHATSAPP_NUMBER = "7490913399";
-
-    /* =====================================================================
-       4. OFFICIAL UPLOADED RAKSH STUDIO LOGO CONFIGURATION
-       Place your uploaded logo file at 'assets/raksh-studio-logo.png'
-       (or paste a base64/custom path here). Automatic transparent-background
-       canvas processing removes any solid black background (#000) while
-       preserving your original burgundy symbol and fine details intact.
-       ===================================================================== */
+    const WHATSAPP_NUMBER = "917490913399";
     const BRAND_LOGO_PATH = "raksh-studio-logo.png";
 
     function removeSolidBlackLogoBackground(imgElement) {
@@ -2455,7 +1869,6 @@
         const imgData = ctx.getImageData(0, 0, w, h);
         const d = imgData.data;
 
-        // Check if corners are solid black before stripping background
         const isBlackCorner = d[0] < 18 && d[1] < 18 && d[2] < 18 && d[3] > 240;
         if (!isBlackCorner) return;
 
@@ -2463,17 +1876,14 @@
           const r = d[i], g = d[i + 1], b = d[i + 2];
           const brightness = Math.max(r, g, b);
           if (brightness < 22) {
-            d[i + 3] = 0; // Make pure black transparent
+            d[i + 3] = 0;
           } else if (brightness < 45 && r < 40) {
-            // Smooth anti-aliased edge transition
             d[i + 3] = Math.round(((brightness - 22) / 23) * 255);
           }
         }
         ctx.putImageData(imgData, 0, 0);
         imgElement.src = canvas.toDataURL('image/png');
-      } catch (e) {
-        // Cross-origin or local file security safe fallback: keeps original image untouched
-      }
+      } catch (e) {}
     }
 
     document.querySelectorAll('[data-brand-logo]').forEach(img => {
@@ -2484,45 +1894,6 @@
       });
     });
 
-    /* =====================================================================
-       3. READY-TO-UPDATE IMAGE PATHS FOR YOUR OWN CUSTOM GRAPHICS
-       Leave empty ("") to display the clean architectural placeholders, or
-       add your own image paths whenever you upload them.
-       ===================================================================== */
-    const STUDIO_CUSTOM_IMAGES = {
-      heroShowcase: "", // e.g. "assets/hero-showcase.jpg"
-      heroDetail: "",   // e.g. "assets/hero-detail.jpg"
-      collections: {
-        "royal-heritage": "",      // e.g. "assets/collection-royal.jpg"
-        "floral-romance": "",      // e.g. "assets/collection-floral.jpg"
-        "modern-elegance": "",     // e.g. "assets/collection-modern.jpg"
-        "cultural-traditions": ""  // e.g. "assets/collection-cultural.jpg"
-      }
-    };
-
-    function applyCustomStudioImages() {
-      const heroMain = document.getElementById('heroCustomArtwork');
-      const heroDetail = document.getElementById('heroDetailArtwork');
-      if (STUDIO_CUSTOM_IMAGES.heroShowcase && heroMain) {
-        heroMain.src = STUDIO_CUSTOM_IMAGES.heroShowcase;
-        heroMain.nextElementSibling.style.display = 'none';
-      }
-      if (STUDIO_CUSTOM_IMAGES.heroDetail && heroDetail) {
-        heroDetail.src = STUDIO_CUSTOM_IMAGES.heroDetail;
-        heroDetail.nextElementSibling.style.display = 'none';
-      }
-      Object.entries(STUDIO_CUSTOM_IMAGES.collections).forEach(([key, path]) => {
-        if (!path) return;
-        const img = document.querySelector(`[data-collection-img="${key}"]`);
-        if (img) img.src = path;
-      });
-    }
-    applyCustomStudioImages();
-
-    /* =====================================================================
-       5 & 6. STRUCTURED LIVE WEBSITE PORTFOLIO DATA ARRAY
-       Add or update wedding website projects in one place.
-       ===================================================================== */
     const DESIGN_PORTFOLIO = [
       {
         id: 'royal-wedding-experience',
@@ -2559,12 +1930,24 @@
         exploreBtnLabel: 'Explore Live Preview',
         chooseBtnLabel: 'Choose This Design',
         openTabLabel: 'Open Live Website'
+      },
+      {
+        id: 'cinematic-royal-experience',
+        badge: 'DESIGN 04',
+        title: 'Cinematic Royal Experience',
+        description: 'Immersive multi-scene royal wedding experience with cinematic transitions, bespoke event chapters, venue map integration and interactive guest RSVP.',
+        previewUrl: 'https://dubeyhardik.github.io/Awp4/',
+        externalUrl: 'https://dubeyhardik.github.io/Awp4/',
+        coupleLabel: 'Royal Celebration',
+        exploreBtnLabel: 'Explore Live Preview',
+        chooseBtnLabel: 'Choose This Design',
+        openTabLabel: 'Open Live Website'
       }
     ];
 
     function renderPortfolioCard(item) {
       return `
-        <article class="portfolio-experience-card" data-design-id="${item.id}">
+        <article class="outlined-section-card portfolio-experience-card" data-design-id="${item.id}">
           <div>
             <div class="portfolio-card-top">
               <span class="badge-signature">&#10022; ${item.badge}</span>
@@ -2588,9 +1971,8 @@
               ></iframe>
 
               <div class="iframe-fallback-card" id="fallback-${item.id}">
-                <div style="font-size:28px; color:var(--gold-badge);">&#10022;</div>
                 <h4>${item.title}</h4>
-                <p>Open the full interactive wedding website in a new tab to experience the animations and music.</p>
+                <p>Open the full interactive wedding website in a new tab.</p>
                 <a href="${item.externalUrl}" target="_blank" rel="noopener" class="btn-ivory">
                   ${item.openTabLabel} &#8599;
                 </a>
@@ -2604,7 +1986,7 @@
           </div>
 
           <div class="portfolio-card-actions">
-            <button type="button" class="btn-ivory" onclick="openPreview('${item.id}')">
+            <button type="button" class="btn-ivory" style="background:var(--crimson); color:#FFFFFF;" onclick="openPreview('${item.id}')">
               ${item.exploreBtnLabel}
             </button>
             <button type="button" class="btn-outline-gold" onclick="chooseDesignForEnquiry('${item.title}')">
@@ -2630,7 +2012,6 @@
         ).join('');
       }
 
-      // Safety fallback timer in case an external frame hangs or blocks silently
       DESIGN_PORTFOLIO.forEach(item => {
         setTimeout(() => {
           const loader = document.getElementById(`loader-${item.id}`);
@@ -2657,7 +2038,6 @@
       const enqDesign = document.getElementById('enqDesign');
       const enqService = document.getElementById('enqService');
       if (enqDesign) {
-        // Select matching option or add it if custom
         let matched = false;
         for (let i = 0; i < enqDesign.options.length; i++) {
           if (enqDesign.options[i].value === designTitle) {
@@ -2682,7 +2062,6 @@
 
     renderDesignPortfolio();
 
-    // ---------- Mobile Drawer Toggle ----------
     const openDrawerBtn = document.getElementById('openDrawerBtn');
     const closeDrawerBtn = document.getElementById('closeDrawerBtn');
     const drawerOverlay = document.getElementById('drawerOverlay');
@@ -2700,7 +2079,6 @@
       link.addEventListener('click', () => toggleDrawer(false));
     });
 
-    // ---------- FAQ Accordion ----------
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.parentElement;
@@ -2708,42 +2086,11 @@
       });
     });
 
-    // ---------- Live Name Personalizer ----------
-    function applyCoupleNames() {
-      const bride = document.getElementById('brideNameInput').value.trim();
-      const groom = document.getElementById('groomNameInput').value.trim();
-      if (!bride && !groom) return;
-
-      const combined = bride && groom ? `${bride} & ${groom}` : (bride || groom);
-      document.querySelectorAll('.dynamic-couple').forEach(el => {
-        el.textContent = combined;
-      });
-      document.getElementById('heroCoupleLabel').textContent = combined;
-      document.getElementById('heroMonogram1').textContent = combined.charAt(0).toUpperCase();
-      document.getElementById('modalCoupleName').value = combined;
-
-      if (bride) document.getElementById('enqBrideName').value = bride;
-      if (groom) document.getElementById('enqGroomName').value = groom;
-
-      document.getElementById('trending').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // ---------- Booking Modal ----------
-    const bookingModal = document.getElementById('bookingModal');
-    const themeSelect = document.getElementById('modalTheme');
-
-    function openBookingModal(serviceName, themeTitle) {
-      document.getElementById('selectedService').value = serviceName;
-      document.getElementById('modalTitle').textContent = serviceName;
-      if (themeTitle) themeSelect.value = themeTitle;
-      bookingModal.classList.add('active');
-    }
-
     function closeBookingModal() {
-      bookingModal.classList.remove('active');
+      const bookingModal = document.getElementById('bookingModal');
+      if (bookingModal) bookingModal.classList.remove('active');
     }
 
-    // ---------- Fullscreen Live Website Preview Modal ----------
     const previewModal = document.getElementById('previewModal');
     const previewFrame = document.getElementById('previewFrame');
     const previewLoader = document.getElementById('previewLoader');
@@ -2793,11 +2140,6 @@
       if (src && src !== 'about:blank') previewLoader.classList.add('hidden');
     });
 
-    previewFrame.addEventListener('error', () => {
-      previewLoader.classList.add('hidden');
-      previewSoon.classList.add('show');
-    });
-
     document.getElementById('previewBackBtn').addEventListener('click', () => closePreview());
 
     document.getElementById('previewUseBtn').addEventListener('click', () => {
@@ -2809,13 +2151,9 @@
     window.addEventListener('popstate', () => closePreview(true));
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closePreview();
-        closeBookingModal();
-      }
+      if (e.key === 'Escape') closePreview();
     });
 
-    // ---------- Direct WhatsApp Dispatch (Modal Quick Sample) ----------
     function sendToWhatsApp(e) {
       e.preventDefault();
       const service = document.getElementById('selectedService').value;
@@ -2824,12 +2162,10 @@
       const theme = document.getElementById('modalTheme').value;
 
       const message = `Hi Raksh Studio! ✨\nWe want to make our *${service}*.\n\n👫 *Couple:* ${couple}\n📅 *Wedding date:* ${date}\n🎨 *Design:* ${theme}`;
-      const url = `https://wa.me/${917490913399}?text=${encodeURIComponent(message)}`;
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       window.location.assign(url);
-      closeBookingModal();
     }
 
-    // ---------- Premium Enquiry Form Validation & WhatsApp Redirect ----------
     function setFieldError(inputEl, errorEl, hasError) {
       inputEl.classList.toggle('invalid', hasError);
       errorEl.classList.toggle('visible', hasError);
@@ -2894,44 +2230,22 @@ I would like to enquire about your wedding invitation services.
 Here are my details:
 
 Full Name: ${fullName}
-
 WhatsApp Number: ${whatsappRaw}
-
 Bride's Name: ${brideName}
-
 Groom's Name: ${groomName}
-
 Wedding Date: ${weddingDate}
-
 Required Service: ${selectedService}
-
 Preferred Design: ${selectedDesign}
 
 Additional Requirements:
 ${additionalRequirements}
 
-I'm interested in knowing more about your packages, pricing and customization options.
-
-Looking forward to hearing from you!
-
 Thank you.`;
 
       const encodedMessage = encodeURIComponent(message);
-      const whatsappURL = `https://wa.me/${917490913399}?text=${encodedMessage}`;
-
+      const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
       window.location.assign(whatsappURL);
     }
-
-    ['enqFullName', 'enqWhatsApp', 'enqService'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) {
-        el.addEventListener('input', () => {
-          el.classList.remove('invalid');
-          const err = el.parentElement.querySelector('.field-error');
-          if (err) err.classList.remove('visible');
-        });
-      }
-    });
   </script>
 </body>
 </html>
